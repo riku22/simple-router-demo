@@ -15,6 +15,8 @@ Router::group(['exceptionHandler' => \Demo\Handlers\CustomExceptionHandler::clas
 
 	Router::get('/contact', 'DefaultController@contact')->setName('contact');
 
+	Router::get('/users', 'DefaultController@users')->setName('users');
+
 	Router::basic('/companies/{id?}', 'DefaultController@companies')->setName('companies');
 
     // API
