@@ -19,6 +19,11 @@ class DefaultController
         return 'DefaultController -> companies -> id: ' . $id;
 	}
 
+	public function form_test(): string
+	{
+        return '<p>Form testing page for CSRF verifier.</p><form method="post" action="/form_test"><input type="hidden" name="csrf_token" value="invalid_token_test"><input type="submit" name="submit" value="Submit"></form>';
+	}
+
     public function notFound(): string
     {
         return 'Page not found';

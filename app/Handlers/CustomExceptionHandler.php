@@ -3,6 +3,7 @@ namespace Demo\Handlers;
 
 use Pecee\Http\Request;
 use Pecee\SimpleRouter\Exceptions\NotFoundHttpException;
+use Pecee\Http\Middleware\Exceptions\TokenMismatchException;
 use Pecee\SimpleRouter\Handlers\IExceptionHandler;
 
 class CustomExceptionHandler implements IExceptionHandler
@@ -39,6 +40,11 @@ class CustomExceptionHandler implements IExceptionHandler
 			$request->setRewriteCallback('DefaultController@notFound');
 			return;
 
+		}
+
+		if($error instanceof TokenMismatchException) {
+			$request->setRewriteCallback('DefaultController@notFound');
+			return;
 		}
 
 		throw $error;

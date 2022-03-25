@@ -17,6 +17,9 @@ Router::group(['exceptionHandler' => \Demo\Handlers\CustomExceptionHandler::clas
 
 	Router::basic('/companies/{id?}', 'DefaultController@companies')->setName('companies');
 
+	Router::form('/form_test', 'DefaultController@form_test')->setName('form_test');
+
+
     // API
 
 	Router::group(['prefix' => '/api', 'middleware' => \Demo\Middlewares\ApiVerification::class], function () {
